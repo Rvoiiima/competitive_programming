@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <cstdio>
@@ -41,21 +40,11 @@ int main() {
     cin >> N >> M;
 
     vector<int> divs = divisors(M);
-/*
-    for(vector<int>::iterator it = divs.begin(); it != divs.end(); ++it) {
-        cout << *(it) << endl;
-    }
-*/
-    
-    sort(divs.begin(), divs.end());
 
     vector<int>::iterator it = lower_bound(divs.begin(), divs.end(), M/N);
 
-    if (*(it) == M/N) {
-        cout << *(it) << endl;
-    } else {
-        cout << *(it-1) << endl;
-    }
+    cout << *it << endl;
+
 
     return 0;
 }
