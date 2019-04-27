@@ -24,4 +24,16 @@ typedef long long unsigned int ll;
 #define PI (acos(-1))
 
 int main() {
+    int n, k;
+    int ans = 1;
+
+    cin >> n >> k;
+    for(int i=0; i<n; i++) {
+        if (ans < k) {
+            ans *= 2;
+        } else {
+            ans += k;
+        }
+    }
+    cout << ans << endl;
 }
