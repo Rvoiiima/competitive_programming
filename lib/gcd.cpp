@@ -1,27 +1,23 @@
-#include <iostream>
-#include <algorithm>
-#include <cstdio>
-#include <string>
-#define ll long long
-
+#include <bits/stdc++.h>
 using namespace std;
+typedef long long unsigned int ll;
 
-ll gcd(ll a, ll b) {
-    ll  tmp, r;
-  if(a<b){
-    tmp = a;
-    a = b;
-    b = tmp;
-  } else if (a==b) {
-      return a;
-  }
- 
-  r = a % b;
-  while(r!=0){
-    a = b;
-    b = r;
-    r = a % b;
-  }
+#define EPS (1e-7)
+#define INF (1e9)
+#define PI (acos(-1))
+#define MAXN 100001
 
-  return b;
+int swap(int a, int b) {
 }
+int gcd(int a, int b) {
+    if(a < b) swap(a, b);
+    if (b==0) return a;
+    return gcd(b, a%b);
+}
+
+int main() {
+
+
+}
+
+
