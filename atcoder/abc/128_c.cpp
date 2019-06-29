@@ -7,46 +7,38 @@ typedef long long ll;
 #define PI (acos(-1))
 #define MAXN 11
 
+int k[MAXN], p[MAXN];
+int switches[MAXN][MAXN];
+int n,m;
 
 int main() {
-    int n,m;
     cin >> n >> m;
-    int k;
-    int s_l[MAXN][MAXN];
-    int s;
     for(int i=0; i<m; i++) {
-        cin >> k;
-        for(int j=0; j<k; j++) {
-            cin >> s;
-            s_l[i][s-1] = 1;
+        cin >> k[i];
+        for(int j=0; j<k[i]; j++) {
+            cin >> switches[i][j];
+            switches[i][j] --;
         }
     }
 
-    int p[MAXN];
+    
     for(int i=0; i<m; i++) {
         cin >> p[i];
     }
 
-    int cnt_ans, cnt_bit;
-
-    for(k=0; k < (1<<n); k++) {
-        bool check = true;
-        
-        for(int i=0; i<m; i++) {
-            cnt_bit = 0;
-            for(int j=0; j<n; j++) {
-                if (((k>>j) & 1) && s_l[i][j]){
-                    cnt_bit+= 1;
-                }
+    int ans = 0;
+    for(int i=0; i< (1<<n); i++) {
+        bool all_light = true;
+        for(int j=0; j<m; j++) {
+            int num_switch = 0;
+            for(int l=0; l<k[j]; l++) {
+                if ((i >> switches[j][l]) & 1) num_switch++;
             }
-            if (cnt_bit % 2 != p[i]){
-                check = false;
-            }
+            if (num_switch%2 != p[j]) all_light = false;
+            if (num_switch%2 != p[j]) all_light = false;
         }
-
-        if ( check == true) cnt_ans++;
+        if ( all_light ) ans ++;
     }
-    cout << cnt_ans << endl;
 
+    cout << ans << endl;
 }
-
