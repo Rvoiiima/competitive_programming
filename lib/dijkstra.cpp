@@ -1,21 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <cstdio>
-#include <string>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <algorithm>
-#include <string>
-#include <sstream>
-#include <complex>
-#include <vector>
-#include <list>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <map>
-#include <set>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long unsigned int ll;
 

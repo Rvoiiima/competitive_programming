@@ -1,23 +1,7 @@
-#include <iostream>
-#include <algorithm>
-#include <cstdio>
-#include <string>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <algorithm>
-#include <string>
-#include <sstream>
-#include <complex>
-#include <vector>
-#include <list>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <map>
-#include <set>
+#include <bits/stdc++.h>
+
 using namespace std;
-typedef long long unsigned int ll;
+typedef long long ll;
 
 #define EPS (1e-7)
 #define INF (1e9)
@@ -45,9 +29,6 @@ vector<string> split(string s, string delim) {
     }
     return res;
 }
-int ALPH_SIZE = 26;
-char ALPH_L[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-char ALPH_U[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
 int m, n;
 vector<int> G[MAX];
