@@ -14,5 +14,17 @@ int gcd(int a, int b) {
 }
 
 int main() {
+    int n, p[52];
+
+    cin >> n;
+    int cnt = 0;
+    for(int i=1; i<=n; i++) {
+        cin >> p[i];
+        if (p[i] != i) cnt ++;
+    }
+
+    if (cnt == 0 || cnt == 2) cout << "YES" <<endl;
+    else cout << "NO" <<endl;
+
 }
 

@@ -7,6 +7,8 @@ typedef long long ll;
 #define PI (acos(-1))
 #define MAXN 100001
 
+int swap(int a, int b) {
+}
 int gcd(int a, int b) {
     if(a < b) swap(a, b);
     if (b==0) return a;
@@ -14,5 +16,16 @@ int gcd(int a, int b) {
 }
 
 int main() {
+    string s;
+    cin >> s;
+    int ans = 1;
+    if (s[0] == s[1] || s[1] == s[2] || s[2] ==s[3] ) {
+        ans = 0;
+    }
+
+    if (ans) cout << "Good" << endl;
+    else cout << "Bad" << endl;
+
+
 }
 

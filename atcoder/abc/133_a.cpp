@@ -14,5 +14,14 @@ int gcd(int a, int b) {
 }
 
 int main() {
+    int n, a, b;
+    cin >> n >> a >> b;
+
+    int minv = min(n*a, b);
+
+    cout << minv << endl;
+
+
+
 }
 
