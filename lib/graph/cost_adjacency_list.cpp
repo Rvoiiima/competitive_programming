@@ -10,24 +10,25 @@ typedef long long ll;
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 const ll mod = 1e9+7;
 
-vector<ll> G[MAXV];
+//vector<ll> G[MAXV];
 
-/*
 struct edge {int to, cost; };
 vector<edge> G[MAXV];
-*/
 
 int main() {
     int V, E;
     cin >> V >> E;
     rep(i, E) {
-        int s, t;
-        cin >> s >> t;
-        G[s].push_back(t);
-        // G[t].push_back(s);
+        int s, t, w;
+        cin >> s >> t >> w;
+        G[s].push_back(edge{s, w});
+        G[t].push_back(edge{t, w});
     }
-    /*
-    */
 
+    rep(i, V) {
+        rep(k, G[i].size()) {
+            cout << G[i][k].to << " " << G[i][k].cost << endl;
+        }
+    }
 }
 

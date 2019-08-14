@@ -6,6 +6,7 @@ typedef long long ll;
 #define INF (1e9)
 #define PI (acos(-1))
 #define MAXN 100001
+#define rep(i,n) for (int i = 0; i < (n); ++i)
 const ll mod = 1e9+7;
 
 
