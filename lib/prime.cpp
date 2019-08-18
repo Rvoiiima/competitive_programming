@@ -34,17 +34,31 @@ vector<int> divisors(int n) {
     return res;
 }
 
+map<int, int> prime_factor(int n) {
+    map<int, int> res;
+    for(int i=2; i*i <= n; ++i) {
+        while ( n%i == 0) {
+            ++res[i];
+            n /= i;
+        }
+    }
+    if ( n != 1) res[n] = 1;
+    return res;
+}
+
 int main() {
-    int N, M;
+    ll n;
+    int N;
 
-    cin >> N >> M;
+    cin >> N;
 
-    vector<int> divs = divisors(M);
+    for(int i=0; i<N; ++i) {
+        cin >> n;
+    
+        vector<int> divs = divisors(n);
 
-    vector<int>::iterator it = lower_bound(divs.begin(), divs.end(), M/N);
+        if ( divs.size() == 2) cout << "yes" << endl;
+        else cout << "no" << endl;
+    }
 
-    cout << *it << endl;
-
-
-    return 0;
 }
