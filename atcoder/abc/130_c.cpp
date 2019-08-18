@@ -11,5 +11,11 @@ const ll mod = 1e9+7;
 
 
 int main() {
+    double W, H, x, y;
+    cin >> W >> H >> x >> y;
+    double ans =  W * H / 2.0;
+    cout << ans << " ";
+    if (x == W/2 * 1.0 && y == H/2 * 1.0) cout << 1 << endl;
+    else cout << 0 << endl;
 }
 

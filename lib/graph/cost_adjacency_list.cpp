@@ -25,7 +25,7 @@ int main() {
         G[t].push_back(edge{t, w});
     }
 
-    rep(i, V) {
+    rep(i, V+1) {
         rep(k, G[i].size()) {
             cout << G[i][k].to << " " << G[i][k].cost << endl;
         }
