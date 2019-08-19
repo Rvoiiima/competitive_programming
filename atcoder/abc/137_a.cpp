@@ -5,11 +5,13 @@ typedef long long ll;
 #define EPS (1e-7)
 #define INF (1e9)
 #define PI (acos(-1))
-#define MAXN 1000010
+#define MAXN 100010
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 const ll mod = 1e9+7;
 
-
 int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << max(a+b, max(a-b, a*b)) << endl;
 }
 
