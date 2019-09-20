@@ -14,47 +14,48 @@ int ti[MAXN][MAXN];
 
 int main() {
     int n, m, a, b;
-    cin >> n >> m;
+    while (cin >> n >> m, n) {
 
-    rep(i, m) {
-        rep(j, m) {
-            if(i==j) {
-                co[i][j] = 0;
-                ti[i][j] = 0;
-            } else {
-                co[i][j] = INF;
-                ti[i][j] = INF;
-            }
-        }
-    }
-
-    int t, c;
-    rep(i, n) {
-        cin >> a >> b >> t >> c;
-        --a; --b;
-        co[a][b] = c;
-        co[b][a] = c;
-        ti[a][b] = t;
-        ti[b][a] = t;
-    }
-
-    rep(k, m) {
         rep(i, m) {
             rep(j, m) {
-                ti[i][j] = min(ti[i][j], ti[i][k]+ti[k][j]);
-                co[i][j] = min(co[i][j], co[i][k]+co[k][j]);
+                if(i==j) {
+                    co[i][j] = 0;
+                    ti[i][j] = 0;
+                } else {
+                    co[i][j] = INF;
+                    ti[i][j] = INF;
+                }
             }
         }
-    }
 
-    int K, r;
-    cin >> K;
-    rep(re, K) {
-        cin >> a >> b >> r;
-        --a; --b;
+        int t, c;
+        rep(i, n) {
+            cin >> a >> b >> c >> t;
+            --a; --b;
+            co[a][b] = c;
+            co[b][a] = c;
+            ti[a][b] = t;
+            ti[b][a] = t;
+        }
 
-        if (r) cout << co[a][b] << endl;
-        else cout << ti[a][b] << endl;
+        rep(k, m) {
+            rep(i, m) {
+                rep(j, m) {
+                    ti[i][j] = min(ti[i][j], ti[i][k]+ti[k][j]);
+                    co[i][j] = min(co[i][j], co[i][k]+co[k][j]);
+                }
+            }
+        }
+
+        int K, r;
+        cin >> K;
+        rep(re, K) {
+            cin >> a >> b >> r;
+            --a; --b;
+
+            if (r) cout << ti[a][b] << endl;
+            else cout << co[a][b] << endl;
+        }
     }
 }
 
