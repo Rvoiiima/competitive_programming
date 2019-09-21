@@ -13,5 +13,15 @@ template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
+    int cone=0, ctwo=0;
+    int tmp;
+    rep(i,3) {
+        cin >> tmp;
+        if (tmp==2) ctwo ++;
+        else cone ++;
+    }
+
+    if (cone > ctwo) cout << 1 << endl;
+    else cout << 2 << endl;
 }
 

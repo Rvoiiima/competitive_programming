@@ -13,5 +13,16 @@ template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
+    int n;
+    string s;
+    cin >> n;
+    cin >> s;
+
+    int cnt=0;
+    rep(i,n) {
+        if (s[i] == 'a' or s[i] == 'i' or s[i] == 'u' or s[i] == 'e' or s[i] == 'o') ++cnt;
+    }
+
+    cout << cnt << endl;
 }
 

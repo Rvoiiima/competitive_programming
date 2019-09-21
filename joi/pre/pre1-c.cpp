@@ -12,6 +12,22 @@ const ll mod = 1e9+7;
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
+vector<int> a;
 int main() {
+    int n, m;
+    cin >> n >> m;
+    int tmp;
+
+    rep(i, n+m) {
+        cin >> tmp;
+        a.push_back(tmp);
+    }
+
+    sort(a.begin(), a.end());
+
+    rep(i, n+m) {
+        cout << a[i] << endl;
+    }
+
 }
 
