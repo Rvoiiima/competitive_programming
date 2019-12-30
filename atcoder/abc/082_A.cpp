@@ -14,13 +14,10 @@ template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; }
 
 int main() {
     int a, b;
+    cin>> a>> b;
 
-    cin >> a >> b;
-    
-    if (a*b % 2 == 0) {
-        cout << "Even" << endl;
-    } else {
-        cout << "Odd" << endl;
-    }
+    int c = a+b;
+
+    cout << (c+2-1)/2 << endl;
 }
 

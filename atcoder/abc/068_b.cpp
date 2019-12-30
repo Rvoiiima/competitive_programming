@@ -13,14 +13,29 @@ template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
-    int a, b;
+    int n;
+    int res;
+    int max_count = -1;
 
-    cin >> a >> b;
-    
-    if (a*b % 2 == 0) {
-        cout << "Even" << endl;
-    } else {
-        cout << "Odd" << endl;
+    cin >> n;
+
+    for(int i=1; i<=n; ++i) {
+
+        int count = 0;
+        int tmp = i;
+
+        while(tmp%2 == 0) {
+            tmp = tmp/2;
+            ++count;
+        }
+
+        if (count > max_count) {
+            max_count = count;
+            res = i;
+        }
     }
+
+    cout << res  <<endl;
+        
 }
 

@@ -13,14 +13,11 @@ template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
-    int a, b;
+    string s;
+    cin >> s;
 
-    cin >> a >> b;
-    
-    if (a*b % 2 == 0) {
-        cout << "Even" << endl;
-    } else {
-        cout << "Odd" << endl;
-    }
+    int len = s.size();
+
+    cout << s[0] << len-2  << s[len-1];
 }
 
