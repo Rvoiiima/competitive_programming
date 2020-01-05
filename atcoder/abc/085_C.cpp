@@ -1,32 +1,36 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
+
+#define EPS (1e-7)
+#define INF (1e9)
+#define PI (acos(-1))
+#define MAXN 1000010
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+const ll mod = 1e9+7;
+
+template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; } return 0; }
+template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
-    int n, y;
-    scanf("%d", &n);
-    scanf("%d", &y);
+    int n;
+    ll y;
+    cin >> n >> y;
 
-    int i, j, flag=0;
-    int ans[3]={-1, -1, -1};
-    int total, k;
-    for (i=0; i<n+1; i++) {
-        for (j=0; i+j<n+1; j++) {
-            k = n-i-j;
-            total = 10000*i + 5000*j + 1000*k;
-            if(total == y) {
-                ans[0] = i;
-                ans[1] = j;
-                ans[2] = n-i-j;
+    int ans_i = -1;
+    int ans_j = -1;
+    int ans_k = -1;
+
+    for(int i=0; i<=n; ++i) {
+        for(int j=0; j<=n-i; ++j) {
+            if (i*10000+j*5000+(n-i-j)*1000 == y) {
+                ans_i = i;
+                ans_j = j;
+                ans_k = n-i-j;
             }
         }
     }
-    
-    for(i=0; i<3; i++) {
-        printf("%d ", ans[i]);
-    }
-    printf("\n");
 
-    return 0;
+    cout << ans_i << " " << ans_j << " " << ans_k << endl;
 }
-
 

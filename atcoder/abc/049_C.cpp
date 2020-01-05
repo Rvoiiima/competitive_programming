@@ -1,41 +1,53 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
+
+#define EPS (1e-7)
+#define INF (1e9)
+#define PI (acos(-1))
+#define MAXN 1000010
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+const ll mod = 1e9+7;
+
+template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; } return 0; }
+template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
-    int i,j;
-    string s;
-    string words[4] = { "dream", "dreamer", "erase", "eraser" };
-    cin >> s;
+    string S;
+    cin >> S;
 
-    reverse(s.begin(), s.end());
-    for(i=0; i<4; i++) reverse(words[i].begin(), words[i].end());
+    string divide[4] = {
+        "dream",
+        "dreamer",
+        "erase",
+        "eraser"
+    };
 
-    
+    reverse(S.begin(), S.end());
+
+    rep(i,4) {
+        reverse(divide[i].begin(), divide[i].end());
+    }
+
     bool ans = true;
-    bool can_devide = false;
 
-    for(i=0; i<s.size();) {
-        can_devide = false;
-        for(j=0; j<4; j++) {
-            if (s.substr(i, words[j].size()) == words[j]) {
-                i += words[j].size();
-                can_devide = true;
-            } 
+    for(int i=0; i<S.size(); ) {
+        bool can = false;
+
+        for(int j=0; j<4; ++j) {
+            string d = divide[j];
+            if (S.substr(i, d.size()) == d) {
+                can = true;
+                i += d.size();
+            }
         }
 
-        if (!can_devide) {
-            ans = false;
+        if (!can) {
+            ans = false; 
             break;
         }
     }
 
-    if (ans == true) {
-        printf("YES\n");
-    }else {
-        printf("NO\n");
-    }
-
-    return 0;
+    cout << ((ans == true) ? "YES" : "NO") << endl;
 }
+

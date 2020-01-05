@@ -12,32 +12,32 @@ const ll mod = 1e9+7;
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
+int a[2][105];
+int sum_i[2][105];
 int main() {
-    ll n;
+    int n;
     cin >> n;
 
-    ll xold=0, yold=0, told=0;
-    ll x, y, t;
-
-    bool ans = true;
-
     rep(i, n) {
-        cin >> t >> x >> y;
-
-        if(abs(x-xold)+abs(y-yold) > t-told) {
-            ans = false;
-        }
-
-        if((x+y)%2 != t%2) {
-            ans = false;
-        }
-
-        xold = x;
-        yold = y;
-        told = t;
+        cin >> a[0][i];
     }
 
-    cout << (ans ? "Yes" : "No") << endl;
+    rep(i, n) {
+        cin >> a[1][i];
+    }
+
+    for(int i=1; i<=n; ++i) {
+        sum_i[0][i] = a[0][i-1] + sum_i[0][i-1];
+        sum_i[1][i] = a[1][n-i] + sum_i[1][i-1];
+    }
+
+    int ans = -1;
+
+    for(int i=1; i<=n; ++i) {
+        ans = max(ans, sum_i[0][i]+sum_i[1][n-i+1]);
+    }
+
+    cout << ans << endl;
 
 }
 
