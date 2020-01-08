@@ -13,21 +13,25 @@ template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
-    ll n, k;
-    cin >> n >>  k;
-
-    ll a = n/k;
-    ll b = (n+(k/2))/k;
-
-    if (k%2 == 0) {
-        cout << a*a*a + b*b*b;
-    } else {
-        cout << a*a*a;
+    int x;
+    cin >> x;
+    int N = x/100;
+    int ans = x - N * 100;
+    int l[5] = {5, 4, 3, 2, 1};
+    int cnt = 0;
+    rep(i, 5) {
+        while(1) {
+            if (ans - l[i] < 0) break;
+            ans -= l[i];
+            cnt ++;
+        }
     }
 
-    cout << endl;
-
-
+    if (ans == 0 and cnt <= N) {
+        cout << "1" << endl;
+    }else {
+        cout << "0" << endl;
+    }
     
 }
 

@@ -12,22 +12,33 @@ const ll mod = 1e9+7;
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
+vector<ll> x;
+
 int main() {
     ll n, k;
-    cin >> n >>  k;
+    ll tmp;
 
-    ll a = n/k;
-    ll b = (n+(k/2))/k;
+    cin >> n >> k;
 
-    if (k%2 == 0) {
-        cout << a*a*a + b*b*b;
-    } else {
-        cout << a*a*a;
+    rep(i, n) {
+        cin >> tmp;
+        x.push_back(tmp);
+    }
+    
+    ll ans = (ll) INF;
+    rep(i, n-k+1) {
+        ll l, r;
+
+        l = x[i];
+        r = x[i+k-1];
+
+        tmp = min(abs(l)+abs(l-r), abs(r)+abs(r-l));
+
+        ans = min(ans, tmp);
     }
 
-    cout << endl;
+    cout << ans << endl;
 
 
-    
 }
 

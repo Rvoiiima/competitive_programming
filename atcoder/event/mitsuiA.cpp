@@ -13,21 +13,12 @@ template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return 1; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
 int main() {
-    ll n, k;
-    cin >> n >>  k;
-
-    ll a = n/k;
-    ll b = (n+(k/2))/k;
-
-    if (k%2 == 0) {
-        cout << a*a*a + b*b*b;
+    int m1, d1, m2, d2;
+    cin >> m1 >> d1 >> m2 >> d2;
+    if (m1 != m2 and d2 == 1) {
+        cout << 1 << endl;
     } else {
-        cout << a*a*a;
+        cout << 0 << endl;
     }
-
-    cout << endl;
-
-
-    
 }
 
