@@ -1,45 +1,56 @@
 #include <iostream>
-#include <algorithm>
-#include <cstdio>
-#include <string>
 #include <cstring>
-#define MAX 100
-#define MAX_W 10000
 using namespace std;
+typedef long long ll;
 
+#define EPS (1e-7)
+#define INF (1e9)
+#define PI (acos(-1))
+#define MAXN 100
+#define MAXW 10000
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+const ll mod = 1e9+7;
+
+int dp[MAXN+1][MAXW+1];
 int n, W;
-int v[MAX], w[MAX];
-int dp[MAX+1][MAX_W+1];
+int w[MAXN+1], v[MAXN+1];
 
 int knapsack(int i, int j) {
-    int res;
-
     if (dp[i][j] >= 0) {
         return dp[i][j];
     }
 
-    if (i==n) {
+    int res;
+
+    if (i == n) {
         res = 0;
     } else if (j < w[i]) {
         res = knapsack(i+1, j);
     } else {
-        res = max(knapsack(i+1, j), knapsack(i+1, j-w[i]) + v[i]);
-    }
-    dp[i][j] = res;
-    return res;
-}
-
-
-
-int main(void) {
-    scanf("%d %d", &n, &W);
-    for(int i=0; i<n; i++) {
-        
-    scanf("%d %d", &v[i], &w[i]);
+        res = max(knapsack(i+1, j), knapsack(i+1, j-w[i])+v[i]);
     }
 
-    memset(dp,-1, sizeof(dp));
-
-    printf("%d\n", knapsack(0, W));
+    return dp[i][j] =res;
 
 }
+
+int main() {
+
+    cin >> n >> W;
+    memset(dp, -1, sizeof(dp));
+
+    rep(i, n) {
+        cin >> v[i] >> w[i];
+    }
+    cout << knapsack(0, W)  << endl;
+/*
+    rep(i, n) {
+        rep(j, W) {
+            cout << dp[i][j] << " ";
+        }
+        cout << endl;
+    }
+*/
+
+}
+
