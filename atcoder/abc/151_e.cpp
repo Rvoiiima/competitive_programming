@@ -54,12 +54,16 @@ int main() {
     ll ans = 0;
 
     sort(a, a+n);
+    
+    rep(re, 2) {
 
-    for(int i=0; n-i>=k; ++i) {
-
-            ans += COM(n-i-1, k-1) * (a[n-i-1] - a[i]);
-            ans %= mod;
-
+        for(int i=0; i<n; ++i) {
+                ll now = COM(i, k-1);
+                if (re == 1) now = -now;
+                ans += now * a[i];
+                ans %= mod;
+        }
+        reverse(a, a+n);
     }
 
     cout << ans << endl;
