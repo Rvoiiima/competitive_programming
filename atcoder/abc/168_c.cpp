@@ -19,16 +19,31 @@ bool pairCompare(const P& firstElof, const P& secondElof)
 }
 
 int main() {
-    ll n, a, b;
+    int a, b, h, m;
 
-    cin >> n >> a >> b;
+    cin >> a >> b >> h >> m;
 
-    ll ab = a+b;
+    float l, s, ang;
 
-    ll ans = a*(n / ab);
+    l = 30 * h + m * 0.5;
+    s = 6 * m;
 
-    ans += min(a, n % ab);
+    ang = abs(l-s);
 
-    cout << ans << endl;
+    float rad = PI*ang / 180;
+
+    float c = sqrt(a*a + b*b - 2* a* b* cos(rad));
+
+    if (ang == 0) {
+        c = abs(a-b);
+    } else if (ang == 180) {
+        c = a+b;
+    }
+    cout << std::fixed << std::setprecision(15) << c << endl;
+
+
+
+
+
 }
 

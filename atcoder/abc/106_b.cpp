@@ -19,16 +19,23 @@ bool pairCompare(const P& firstElof, const P& secondElof)
 }
 
 int main() {
-    ll n, a, b;
+    string s;
+    ll k;
 
-    cin >> n >> a >> b;
+    cin >> s;
+    cin >> k;
 
-    ll ab = a+b;
-
-    ll ans = a*(n / ab);
-
-    ans += min(a, n % ab);
-
+    char ans = '1';
+    int cursor = 0;
+    rep(i, s.size()) {
+        if (s[i] == '1') {
+            cursor++;
+            if (cursor == k) break;
+        } else {
+            ans = s[i]; 
+            break;
+        }
+    }
     cout << ans << endl;
-}
 
+}
