@@ -18,6 +18,22 @@ bool pairCompare(const P& firstElof, const P& secondElof)
     return firstElof.second < secondElof.second;
 }
 
+ll a;
+ll b;
+string s;
+
 int main() {
+    cin >> a >> s;
+
+    for(int i=0; i<s.length(); ++i) {
+        if (s[i] == '.') continue;
+        b *= 10;
+        b += s[i] - '0';
+    }
+           
+    a *= b;
+    a /= 100;
+    cout << a << endl;
+    
 }
 

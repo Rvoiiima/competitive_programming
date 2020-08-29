@@ -10,8 +10,6 @@ if l.count(ma-1) == 2:
     c += 1
 elif l.count(ma-1) == 1:
     c += 2
-        
+
 print(l)
 print(c)
-
-
