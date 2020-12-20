@@ -1,6 +1,4 @@
 *.out
 */a.out
-atcoder/*/a.out
 *.swp
-paiza/*
-event/*
+src/*
